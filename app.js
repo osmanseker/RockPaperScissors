@@ -1,9 +1,9 @@
-let playersocre = 0;
-let aisocre = 0;
-const playersocre_span = document.getElementById("player_score");
-const aisocre_span = document.getElementById("ai_score");
+let playerscore = 0;
+let aiscore = 0;
+const playerscore_span = document.getElementById("player_score");
+const aiscore_span = document.getElementById("AI_score");
 const scoreboard_div = document.querySelector(".score-board");
-const result_p = document.querySelector(".result > p");
+const result_p = document.querySelector(".Result > p");
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
@@ -21,18 +21,18 @@ function convertToWord(letter) {
 }
 
 function win(playerChoice, aiChoice) {
-    playersocre++;
-    playersocre_span.innerHTML = playersocre;
-    aisocre_span.innerHTML = aisocre;
-    result_p.innerHTML = convertToWord(playerChoice) + "beats" + convertToWord(aiChoice) + "You win!";
+    playerscore++;
+    playerscore_span.innerHTML = playerscore;
+    aiscore_span.innerHTML = aiscore;
+    result_p.innerHTML = convertToWord(playerChoice) + "beats" + convertToWord(aiChoice) + "You win! 🎈 ";
 }
 
 function lose() {
-    aisocre++;
+    console.log("lost!");
 }
 
 function draw() {
-
+    console.log("DRAWW!");
 }
 
 function Game(playerChoice) {
