@@ -25,6 +25,8 @@ function win(playerChoice, aiChoice) {
     playerscore_span.innerHTML = playerscore;
     aiscore_span.innerHTML = aiscore;    
     result_p.innerHTML = `${convertToWord(playerChoice)} beats ${convertToWord(aiChoice)}. You win 🔥! `;
+    document.getElementById(playerChoice).classList.add('green');
+    setTimeout(function(){document.getElementById(playerChoice).classList.remove('green')}, 500);
 }
 
 function lose(playerChoice, aiChoice) {
@@ -32,10 +34,14 @@ function lose(playerChoice, aiChoice) {
     playerscore_span.innerHTML = playerscore;
     aiscore_span.innerHTML = aiscore;
     result_p.innerHTML = `${convertToWord(playerChoice)} loses to ${convertToWord(aiChoice)}. You lose 💩`;
+    document.getElementById(playerChoice).classList.add('red');
+    setTimeout(function(){document.getElementById(playerChoice).classList.remove('red')}, 500);
 }
 
 function draw(playerChoice, aiChoice) {
     result_p.innerHTML = `${convertToWord(playerChoice)} equals ${convertToWord(aiChoice)}. It's a draw 😐`;
+    document.getElementById(playerChoice).classList.add('grey');
+    setTimeout(function(){document.getElementById(playerChoice).classList.remove('grey')}, 500);
 }
 
 function Game(playerChoice) {
@@ -61,16 +67,8 @@ function Game(playerChoice) {
 
 function main() {
 
-    rock_div.addEventListener('click', function () {
-        Game("r")
-    })
-
-    paper_div.addEventListener('click', function () {
-        Game("p")
-    })
-
-    scissors_div.addEventListener('click', function () {
-        Game("s")
-    })
+    rock_div.addEventListener('click', function () {Game("r")})
+    paper_div.addEventListener('click', function () {Game("p")})
+    scissors_div.addEventListener('click', function () {Game("s")})
 }
 main();
