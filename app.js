@@ -23,16 +23,19 @@ function convertToWord(letter) {
 function win(playerChoice, aiChoice) {
     playerscore++;
     playerscore_span.innerHTML = playerscore;
+    aiscore_span.innerHTML = aiscore;    
+    result_p.innerHTML = `${convertToWord(playerChoice)} beats ${convertToWord(aiChoice)}. You win 🔥! `;
+}
+
+function lose(playerChoice, aiChoice) {
+    aiscore++;
+    playerscore_span.innerHTML = playerscore;
     aiscore_span.innerHTML = aiscore;
-    result_p.innerHTML = convertToWord(playerChoice) + "beats" + convertToWord(aiChoice) + "You win! 🎈 ";
+    result_p.innerHTML = `${convertToWord(playerChoice)} loses to ${convertToWord(aiChoice)}. You lose 💩`;
 }
 
-function lose() {
-    console.log("lost!");
-}
-
-function draw() {
-    console.log("DRAWW!");
+function draw(playerChoice, aiChoice) {
+    result_p.innerHTML = `${convertToWord(playerChoice)} equals ${convertToWord(aiChoice)}. It's a draw 😐`;
 }
 
 function Game(playerChoice) {
